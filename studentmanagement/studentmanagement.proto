@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package studentmanagement;
+
+option go_package = "github.com/crshao/go-studentmanagement-grpc;go_studentmanagement_grpc";
+
+service StudentManagement {
+    rpc CreateNewStudent (NewStudent) returns (Student) {}
+    rpc GetStudents (GetStudentsParams) returns (StudentsList) {}
+}
+
+message NewStudent {
+    string name = 1;
+    string nim = 2;
+}
+
+message Student {
+    string name = 1;
+    string nim = 2;
+    int32 id = 3;
+}
+
+message GetStudentsParams {
+
+}
+
+message StudentsList {
+    repeated Student students = 1;
+}
